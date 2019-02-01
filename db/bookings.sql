@@ -21,9 +21,8 @@ CREATE TABLE tickets (
   film_id INT REFERENCES films(id) ON DELETE CASCADE
 );
 
--- CREATE TABLE screenings (
---   id SERIAL4 PRIMARY KEY,
---   film_id INT REFERENCES films(id) ON DELETE CASCADE,
---   screen_time VARCHAR(255),
---   max_capacity INT
--- );
+CREATE TABLE screenings (
+  id SERIAL4 PRIMARY KEY,
+  screen_time VARCHAR(255),
+  max_capacity INT
+);

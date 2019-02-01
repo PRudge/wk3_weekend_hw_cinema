@@ -11,14 +11,13 @@ class Ticket
     @film_id = details['film_id'].to_i
   end
 
-
+  # take cash after each ticket sale
   def sell_ticket()
     customer_dets = self.customer()
-    customer_fund = customer_dets.funds
     film_dets = self.film()
     film_price = film_dets.price
-    customer_fund -= film_price
-    @customer_id.funds = customer_fund
+    customer_dets.funds -= film_price
+    return customer_dets
   end
 
 

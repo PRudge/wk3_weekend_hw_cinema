@@ -33,7 +33,9 @@ film3.save()
 
 ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'film_id' => film1.id})
 ticket1.save()
-ticket1.sell_ticket()
+# update after each ticket sale?
+customer_update = ticket1.sell_ticket()
+customer_update.update()
 
 ticket2 = Ticket.new({ 'customer_id' => customer1.id, 'film_id' => film2.id})
 ticket2.save()
@@ -69,20 +71,15 @@ film2.customers()
 
 # Buying tickets should decrease the funds of the customer by the price
 # customer1.buytickets()
-customer1.funds -= customer1.films().map{|film| film.price}.sum
-customer1.update()
+# customer1.funds -= customer1.films().map{|film| film.price}.sum
+# customer1.update()
 
 # # Check how many tickets were bought by a customer
 # # customer2.check_num_films()
-customer2.films().length
+# customer2.films().length
 #
 # # Check how many customers are going to watch a certain film
-film2.customers().length
-
-
-
-
-
+# film2.customers().length
 
 binding.pry
 nil
